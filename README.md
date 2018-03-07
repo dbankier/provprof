@@ -22,7 +22,7 @@ Options:
 
 ### Sample usage
 
-![list](https://github.com/dbankier/provprof/raw/master/screens/list.gif)
+![list](https://github.com/dbankier/provprof/raw/master/screens/list.png)
 
 ## Library usage
 

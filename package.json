@@ -14,7 +14,7 @@
     "Apple",
     "xcode"
   ],
-  "author": "David Bankier",
+  "author": "David Bankier <david@yydigital.com> (http://www.yydigital.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dbankier/provprof/issues"
