@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+const profiles = require('../lib/profiles');
+const utils = require('../lib/utils');
+
+let argv = require('yargs')
+   .command('list [options]', 'List all install profiles')
+   .command('remove <uuid>', 'Remove a specific profile')
+   .command('remove-expired', 'Remove all expired profiles')
+   .option('expired', {
+     boolean: true,
+     description: 'show only expired provisioning profiles',
+     default: 'expired'
+   })
+   .demandCommand()
+   .showHelpOnFail(true)
+   .argv
+
+let command = argv._[0];
+if (command === 'list') {
+  profiles.printAsPretty(argv.expired)
+} else if (command === 'remove') {
+  utils.removeSingle(argv.uuid);
+} else if (command === 'remove-expired') {
+  utils.removeExpired();
+}
+
+
