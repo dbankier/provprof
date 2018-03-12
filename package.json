@@ -1,6 +1,6 @@
 {
   "name": "provprof",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "iOS Provisioning Profile Tools",
   "main": "./lib/profiles.js",
   "repository": {

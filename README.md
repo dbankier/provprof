@@ -16,8 +16,26 @@ Commands:
 Options:
   --help     Show help                                                 [boolean]
   --version  Show version number                                       [boolean]
-  --expired  show only expired provisioning profiles
-                                                  [boolean] [default: "expired"]
+~~~
+
+~~~
+❯ provprof list --help
+provprof list [options]
+
+List all install profiles
+
+Options:
+  --help         Show help                                             [boolean]
+  --version      Show version number                                   [boolean]
+  --expired      show only expired provisioning profiles
+                                                  [boolean] [default: false]
+  --team         search by team name
+  --name         search by profile name
+  --app_id       search by app id
+  --app_id_name  search by app name
+  --search       search by team name, profile name, app id or app name
+  --devices      display the devices in the provisioning profile
+                                                  [boolean] [default: false]
 ~~~
 
 ### Sample usage
@@ -42,8 +60,25 @@ returns an array of profiles
         app_id_name: String,
         uuid: String,
         created: Date,
-        expiry: Date
+        expiry: Date,
+        devices: [String]
 }]
+
+let limitedProfiles = provprof.list(options);
+
+/*
+returns the same array as above
+
+options include:
+{
+        team: String,       // search by team name
+        name: String,       // search by profile name
+        app_id: String,     // search by app id
+        app_id_name: String,// search by app name
+        expired: Boolean,   // filter on expired profiles
+        search: String      // search on team, profile, app id or app name
+}
+*/
 ~~~
 
 

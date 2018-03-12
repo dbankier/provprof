@@ -3,21 +3,43 @@ const profiles = require('../lib/profiles');
 const utils = require('../lib/utils');
 
 let argv = require('yargs')
-   .command('list [options]', 'List all install profiles')
+   .command('list [options]', 'List all install profiles', yargs => {
+     let sub = yargs
+       .option('expired', {
+         boolean: true,
+         description: 'show only expired provisioning profiles',
+         default: false
+       })
+       .option('team', {
+         description: 'search by team name'
+       })
+       .option('name', {
+         description: 'search by profile name'
+       })
+       .option('app_id', {
+         description: 'search by app id'
+       })
+       .option('app_id_name', {
+         description: 'search by app name'
+       })
+       .option('search', {
+         description: 'search by team name, profile name, app id or app name'
+       })
+       .option('devices', {
+         boolean: true,
+         description: 'display the devices in the provisioning profile',
+         default: false
+       })
+   })
    .command('remove <uuid>', 'Remove a specific profile')
    .command('remove-expired', 'Remove all expired profiles')
-   .option('expired', {
-     boolean: true,
-     description: 'show only expired provisioning profiles',
-     default: 'expired'
-   })
    .demandCommand()
    .showHelpOnFail(true)
    .argv
 
 let command = argv._[0];
 if (command === 'list') {
-  profiles.printAsPretty(argv.expired)
+  profiles.prettyPrint(profiles.find(argv), argv.devices);
 } else if (command === 'remove') {
   utils.removeSingle(argv.uuid);
 } else if (command === 'remove-expired') {
