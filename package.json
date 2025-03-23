@@ -1,19 +1,13 @@
 {
   "name": "provprof",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "iOS Provisioning Profile Tools",
   "main": "./lib/profiles.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dbankier/provprof.git"
   },
-  "keywords": [
-    "Provisioning",
-    "Profiles",
-    "iOS",
-    "Apple",
-    "xcode"
-  ],
+  "keywords": ["Provisioning", "Profiles", "iOS", "Apple", "xcode"],
   "author": "David Bankier <david@yydigital.com> (http://www.yydigital.com)",
   "license": "MIT",
   "bugs": {
